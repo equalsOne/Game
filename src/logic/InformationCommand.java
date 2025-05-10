@@ -1,19 +1,19 @@
 package logic;
 
-public class InformationCommand {
+public class InformationCommand implements Command{
     private static final String name = "Information";
     private GamePlan gamePlan;
     private Bag bag;
 
-    public InformationCommand(GamePlan gamePlan, Bag bag){
+    public InformationCommand(GamePlan gamePlan){
         this.gamePlan = gamePlan;
-        this.bag = bag;
+        this.bag = gamePlan.getBag();
     }
 
     public String getName() { return name; }
 
     public String doCommand(String... parameters){
-        if(parameters.length == 0 || parameters[0].isBlank()){
+        if(parameters.length == 0){
             return "This command doesn't exist. " +
                     "Type the name of the room or 'bag' to see the " +
                     "whole information on that object.";
@@ -21,9 +21,9 @@ public class InformationCommand {
 
         String message = parameters[0].toLowerCase();
 
-        if(parameters[0].equals("bag")){
-            return bag.getThingsInBag().isEmpty() ? "Your bag is empty!" :
-                    String.join(" ", bag.getThingsInBag());
+        if(message.equals("bag")){
+            return bag.getThingsNamesInBag().isEmpty() ? "Your bag is empty!" :
+                    String.join(" ", bag.getThingsNamesInBag());
         }
 
         return gamePlan.getRooms().values().stream()

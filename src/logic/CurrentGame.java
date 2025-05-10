@@ -14,18 +14,26 @@ public class CurrentGame implements Game{
         commandsList.addCommand(new EndCommand(this));
         commandsList.addCommand(new GoCommand(gamePlan));
         commandsList.addCommand(new PromptCommand(commandsList));
+        commandsList.addCommand(new InformationCommand(gamePlan));
+        commandsList.addCommand(new DisposeCommand(gamePlan));
+        commandsList.addCommand(new TalkCommand(gamePlan));
+        commandsList.addCommand(new BuyCommand(gamePlan));
+        commandsList.addCommand(new TakeCommand(gamePlan));
     }
 
     @Override
     public String inceptionMessage() {
-        return "Hi! This is a game about treasure hunting in the caves. " +
-                "If you need help to figure out how to play, " +
-                "type 'prompt' in the command line.";
+        return "Hi! \nThis is a game about treasure hunting in the caves. " +
+                "\nRight now, you are in the "
+                + gamePlan.getCurrentRoom().getName() +
+                "\n" + gamePlan.getCurrentRoom().nearbyRoomsDescription() +
+                "\nIf you need help to figure out how to play, " +
+                "type 'prompt' in the command line";
     }
 
     @Override
     public String endMessage() {
-        return "That is it! Thanks for playing.";
+        return "That is it! Thanks for playing";
     }
 
     @Override

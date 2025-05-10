@@ -15,7 +15,7 @@ public class GoCommand implements Command{
 
         Room aimRoom = gamePlan.getCurrentRoom().getNearbyRoom(direction);
 
-        if(aimRoom != null){
+        if(aimRoom != null) {
             gamePlan.setCurrentRoom(aimRoom);
 
             return aimRoom.extendedDescription();

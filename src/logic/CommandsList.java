@@ -8,10 +8,10 @@ public class CommandsList {
     public CommandsList() { commandsList = new HashMap<>(); }
 
     public void addCommand(Command command)
-    { commandsList.put(command.getName(), command); }
+    { commandsList.put(command.getName().toLowerCase(), command); }
 
     public Command getCommand(String name)
-    { return commandsList.get(name); }
+    { return commandsList.get(name.toLowerCase()); }
 
     public Set<String> getCommandsNames()
     { return commandsList.keySet(); }

@@ -6,6 +6,7 @@ import java.util.Map;
 public class GamePlan {
     private Room currentRoom;
     private Map<String, Room> rooms;
+    private Bag bag = new Bag();
 
     public GamePlan(){
         this.rooms = new HashMap<>();
@@ -14,6 +15,8 @@ public class GamePlan {
 
         createGameMap(factory);
     }
+
+    public Bag getBag() { return bag; }
 
     public Map<String, Room> getRooms() { return rooms; }
 
@@ -38,6 +41,12 @@ public class GamePlan {
         treasureRoom.setExits(dwarfHut, wizardSpace);
         wizardSpace.setExits(treasureRoom, spiderCave);
         spiderCave.setExits(coinsCave, wizardSpace);
+
+        CharacterBase dwarf = new Dwarf();
+        dwarfHut.addCharacter(dwarf);
+
+        ThingBase coins = new Coins();
+        coinsCave.addToThingsInRoom(coins);
 
         currentRoom = startingRoom;
     }

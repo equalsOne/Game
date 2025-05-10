@@ -11,4 +11,8 @@ public class CharacterBase {
 
     public CharacterBase(String name)
     { this.name = name; }
+
+    public String getName() { return name; }
+
+    public String getMessageForPlayer() { return messageForPlayer; }
 }

@@ -6,17 +6,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Bag {
-    private final int capacity;
+    private final int capacity = 5;
     private final List<ThingBase> thingsInBag;
 
-    public Bag(int capacity){
-        this.capacity = capacity;
-        thingsInBag = new ArrayList<>();
+    public Bag(){
+        this.thingsInBag = new ArrayList<>();
     }
 
     public int getCapacity() { return capacity; }
 
-    public Collection<String> getThingsInBag()
+    public Collection<String> getThingsNamesInBag()
     {
         return thingsInBag.stream()
             .map(ThingBase::getName)
@@ -39,5 +38,12 @@ public class Bag {
 
     public boolean removeThing(String name){
         return thingsInBag.removeIf(t -> t.getName().equals(name));
+    }
+
+    public ThingBase getThingByName(String name) {
+        return thingsInBag.stream()
+                .filter(t -> t.getName().equalsIgnoreCase(name))
+                .findFirst()
+                .orElse(null);
     }
 }

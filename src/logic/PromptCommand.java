@@ -5,7 +5,7 @@ public class PromptCommand implements Command{
     private CommandsList commandsList;
     private static final String prompt = "You have to unlock the treasures, " +
             "hidden in the treasure room. " +
-            "You are going to need key for this. " +
+            "\nYou are going to need key for this. " +
             "In the game, you can use this commands: \n";
 
     public PromptCommand(CommandsList commandsList) { this.commandsList = commandsList; }
@@ -15,7 +15,7 @@ public class PromptCommand implements Command{
     @Override
     public String doCommand(String... parameters) {
         return parameters.length != 0 ? "Sorry, this command doesn't exist. " +
-                "Maybe you've meant 'Prompt', which helps you to find out all the commands?"
+                "\nMaybe you've meant 'Prompt', which helps you to find out all the commands?"
                 : prompt + String.join("\n", commandsList.getCommandsNames());
     }
 }
