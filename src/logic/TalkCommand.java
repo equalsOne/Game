@@ -25,7 +25,7 @@ public class TalkCommand implements Command{
 
         CharacterBase character = currentRoom.getCharactersInRoom().stream()
                 .filter(c -> c.getName().equalsIgnoreCase(characterName))
-                .filter(c -> !c.getName().equalsIgnoreCase("Spider"))  // Исключаем паука
+                .filter(c -> !c.getName().equalsIgnoreCase("Spider"))
                 .findFirst()
                 .orElse(null);
 
