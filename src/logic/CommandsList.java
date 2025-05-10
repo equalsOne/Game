@@ -1,0 +1,18 @@
+package logic;
+
+import java.util.*;
+
+public class CommandsList {
+    private final Map<String, Command> commandsList;
+
+    public CommandsList() { commandsList = new HashMap<>(); }
+
+    public void addCommand(Command command)
+    { commandsList.put(command.getName(), command); }
+
+    public Command getCommand(String name)
+    { return commandsList.get(name); }
+
+    public Set<String> getCommandsNames()
+    { return commandsList.keySet(); }
+}
