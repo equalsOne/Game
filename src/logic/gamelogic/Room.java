@@ -82,6 +82,13 @@ public class Room {
                             .collect(Collectors.joining(", ")));
         }
 
+        if(!charactersInRoom.isEmpty()){
+            builder.append("\nCharacters here: ")
+                    .append(charactersInRoom.stream()
+                            .map(Character::getName)
+                            .collect(Collectors.joining(", ")));
+        }
+
         return builder.toString();
     }
 
