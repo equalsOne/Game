@@ -1,4 +1,4 @@
-package logic;
+package logic.things;
 
 import java.util.ArrayList;
 import java.util.Collection;

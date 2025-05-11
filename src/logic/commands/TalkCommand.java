@@ -1,4 +1,8 @@
-package logic;
+package logic.commands;
+
+import logic.characters.Character;
+import logic.gamelogic.GamePlan;
+import logic.gamelogic.Room;
 
 public class TalkCommand implements Command{
     private static final String name = "Talk";

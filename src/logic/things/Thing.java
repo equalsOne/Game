@@ -1,4 +1,4 @@
-package logic;
+package logic.things;
 
 public class Thing {
     private String name;

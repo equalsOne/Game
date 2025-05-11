@@ -1,4 +1,4 @@
-package logic;
+package logic.characters;
 
 public class Spider extends Character {
     public Spider(){

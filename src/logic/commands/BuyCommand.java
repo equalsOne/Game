@@ -1,4 +1,10 @@
-package logic;
+package logic.commands;
+
+import logic.characters.Dwarf;
+import logic.gamelogic.GamePlan;
+import logic.things.Bag;
+import logic.things.Sword;
+import logic.things.Thing;
 
 public class BuyCommand implements Command{
     private static final String name = "Buy";

@@ -1,4 +1,4 @@
-package logic;
+package logic.characters;
 
 public class Character {
     private String name;

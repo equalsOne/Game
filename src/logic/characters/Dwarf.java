@@ -1,4 +1,7 @@
-package logic;
+package logic.characters;
+
+import logic.things.Sword;
+import logic.things.Thing;
 
 import java.util.HashMap;
 import java.util.Map;

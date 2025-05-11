@@ -1,4 +1,5 @@
-import logic.*;
+import logic.gamelogic.CurrentGame;
+import logic.gamelogic.Game;
 import uiText.UserTextInterface;
 
 public class Start {

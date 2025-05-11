@@ -1,4 +1,8 @@
-package logic;
+package logic.commands;
+
+import logic.things.Bag;
+import logic.gamelogic.GamePlan;
+import logic.gamelogic.Room;
 
 public class InformationCommand implements Command{
     private static final String name = "Information";

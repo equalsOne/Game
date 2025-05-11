@@ -1,4 +1,4 @@
-package logic;
+package logic.gamelogic;
 
 public interface Game {
     String inceptionMessage();

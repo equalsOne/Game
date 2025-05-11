@@ -1,4 +1,10 @@
-package logic;
+package logic.gamelogic;
+
+import logic.characters.Character;
+import logic.characters.Dwarf;
+import logic.things.Bag;
+import logic.things.Coins;
+import logic.things.Thing;
 
 import java.util.HashMap;
 import java.util.Map;

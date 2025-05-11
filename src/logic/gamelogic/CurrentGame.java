@@ -1,4 +1,6 @@
-package logic;
+package logic.gamelogic;
+
+import logic.commands.*;
 
 import java.util.Arrays;
 

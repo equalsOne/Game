@@ -1,4 +1,4 @@
-package logic;
+package logic.characters;
 
 public class Wizard extends Character {
     public Wizard()

@@ -1,4 +1,9 @@
-package logic;
+package logic.commands;
+
+import logic.things.Bag;
+import logic.gamelogic.GamePlan;
+import logic.gamelogic.Room;
+import logic.things.Thing;
 
 import java.util.Optional;
 

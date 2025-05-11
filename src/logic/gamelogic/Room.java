@@ -1,4 +1,7 @@
-package logic;
+package logic.gamelogic;
+
+import logic.characters.Character;
+import logic.things.Thing;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -8,7 +11,7 @@ public class Room {
     private String description;
     private Map<String, Room> nearbyRooms;
     private Collection<Thing> thingsInRoom;
-    private List<Character> charactersInRoom;
+    private List<logic.characters.Character> charactersInRoom;
 
     public Room(String name, String description){
         this.name = name;
@@ -20,7 +23,7 @@ public class Room {
 
     public void removeThing(Thing thing) { thingsInRoom.remove(thing); }
 
-    public void addCharacter(Character character) {
+    public void addCharacter(logic.characters.Character character) {
         charactersInRoom.add(character);
     }
 

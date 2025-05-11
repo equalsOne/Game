@@ -1,6 +1,6 @@
 package uiText;
 
-import logic.*;
+import logic.gamelogic.Game;
 
 import java.io.*;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package logic;
+package logic.things;
 
 public class Coins extends Thing {
     public Coins(){

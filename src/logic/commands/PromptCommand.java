@@ -1,4 +1,4 @@
-package logic;
+package logic.commands;
 
 public class PromptCommand implements Command{
     private static final String name = "Prompt";

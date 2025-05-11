@@ -1,4 +1,4 @@
-package logic;
+package logic.gamelogic;
 
 public class RoomFactory {
     public Room createStartingRoom(){

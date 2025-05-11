@@ -1,4 +1,7 @@
-package logic;
+package logic.commands;
+
+import logic.gamelogic.GamePlan;
+import logic.gamelogic.Room;
 
 public class GoCommand implements Command{
     private static final String name = "Go";

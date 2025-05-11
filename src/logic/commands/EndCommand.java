@@ -1,4 +1,6 @@
-package logic;
+package logic.commands;
+
+import logic.gamelogic.Game;
 
 public class EndCommand implements Command{
 
