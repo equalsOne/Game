@@ -1,11 +1,10 @@
 package logic;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Dwarf extends CharacterBase{
-    private Map<String, ThingBase> goods;
+public class Dwarf extends Character {
+    private Map<String, Thing> goods;
 
     public Dwarf(){
         super("Dwarf", "Hi, I'm the Cave Dwarf! " +
@@ -17,11 +16,11 @@ public class Dwarf extends CharacterBase{
         addGoods(new Sword());
     }
 
-    private void addGoods(ThingBase thing){
+    private void addGoods(Thing thing){
         goods.put(thing.getName().toLowerCase(), thing);
     }
 
-    public void deleteGood(ThingBase thing){
+    public void deleteGood(Thing thing){
         goods.remove(thing.getName());
     }
 }

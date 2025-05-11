@@ -12,7 +12,7 @@ public class InformationCommand implements Command{
 
     public String getName() { return name; }
 
-    public String doCommand(String... parameters){
+    public String ExecuteCommand(String... parameters){
         if(parameters.length == 0){
             return "This command doesn't exist. " +
                     "Type the name of the room or 'bag' to see the " +

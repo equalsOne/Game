@@ -16,7 +16,7 @@ public class BuyCommand implements Command{
     }
 
     @Override
-    public String doCommand(String... parameters) {
+    public String ExecuteCommand(String... parameters) {
         if (parameters.length == 0) {
             return "You need to specify what you want to buy";
         }
@@ -29,13 +29,17 @@ public class BuyCommand implements Command{
                 .findFirst()
                 .orElse(null);
 
+        if(dwarf == null){
+            return "Dwarf isn't present here";
+        }
+
         String thingName = parameters[0].toLowerCase();
 
         if (!hasCoinsInBag()) {
             return "You don't have enough coins to buy anything";
         }
 
-        ThingBase thingToBuy = getThingToBuy(thingName);
+        Thing thingToBuy = getThingToBuy(thingName);
 
         if (thingToBuy == null) {
             return "This thing is not available for purchase";
@@ -54,14 +58,14 @@ public class BuyCommand implements Command{
                 .anyMatch(name -> name.equalsIgnoreCase("coins"));
     }
 
-    private ThingBase getThingToBuy(String thingName) {
+    private Thing getThingToBuy(String thingName) {
         if (thingName.equalsIgnoreCase("sword")) {
             return new Sword();
         }
         return null;
     }
 
-    private boolean buyThing(ThingBase thing) {
+    private boolean buyThing(Thing thing) {
         if (hasCoinsInBag()) {
             bag.removeThing("coins");
 

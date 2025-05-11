@@ -53,7 +53,7 @@ public class CurrentGame implements Game{
 
         Command command = commandsList.getCommand(commandName);
 
-        return command != null ? command.doCommand(parameters)
+        return command != null ? command.ExecuteCommand(parameters)
                 : "This command doesn't exist...";
     }
 

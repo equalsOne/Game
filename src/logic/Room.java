@@ -7,8 +7,8 @@ public class Room {
     private String name;
     private String description;
     private Map<String, Room> nearbyRooms;
-    private Collection<ThingBase> thingsInRoom;
-    private List<CharacterBase> charactersInRoom;
+    private Collection<Thing> thingsInRoom;
+    private List<Character> charactersInRoom;
 
     public Room(String name, String description){
         this.name = name;
@@ -18,20 +18,20 @@ public class Room {
         this.charactersInRoom = new ArrayList<>();
     }
 
-    public void removeThing(ThingBase thing) { thingsInRoom.remove(thing); }
+    public void removeThing(Thing thing) { thingsInRoom.remove(thing); }
 
-    public void addCharacter(CharacterBase character) {
+    public void addCharacter(Character character) {
         charactersInRoom.add(character);
     }
 
-    public List<CharacterBase> getCharactersInRoom() {
+    public List<Character> getCharactersInRoom() {
         return charactersInRoom;
     }
 
-    public void addToThingsInRoom(ThingBase thing)
+    public void addToThingsInRoom(Thing thing)
     { thingsInRoom.add(thing); }
 
-    public Collection<ThingBase> getThingsInRoom() { return thingsInRoom; }
+    public Collection<Thing> getThingsInRoom() { return thingsInRoom; }
 
     public String getName() { return name; }
 
@@ -75,7 +75,7 @@ public class Room {
         if (!thingsInRoom.isEmpty()) {
             builder.append("\nThings here: ")
                     .append(thingsInRoom.stream()
-                            .map(ThingBase::getName)
+                            .map(Thing::getName)
                             .collect(Collectors.joining(", ")));
         }
 

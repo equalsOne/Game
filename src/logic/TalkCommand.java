@@ -14,7 +14,7 @@ public class TalkCommand implements Command{
     }
 
     @Override
-    public String doCommand(String... parameters) {
+    public String ExecuteCommand(String... parameters) {
         if (parameters.length == 0) {
             return "Who do you want to talk to? Write the character's name after 'talk'";
         }
@@ -23,7 +23,7 @@ public class TalkCommand implements Command{
 
         Room currentRoom = gamePlan.getCurrentRoom();
 
-        CharacterBase character = currentRoom.getCharactersInRoom().stream()
+        Character character = currentRoom.getCharactersInRoom().stream()
                 .filter(c -> c.getName().equalsIgnoreCase(characterName))
                 .filter(c -> !c.getName().equalsIgnoreCase("Spider"))
                 .findFirst()

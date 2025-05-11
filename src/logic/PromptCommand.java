@@ -13,7 +13,7 @@ public class PromptCommand implements Command{
     public String getName() { return name; }
 
     @Override
-    public String doCommand(String... parameters) {
+    public String ExecuteCommand(String... parameters) {
         return parameters.length != 0 ? "Sorry, this command doesn't exist. " +
                 "\nMaybe you've meant 'Prompt', which helps you to find out all the commands?"
                 : prompt + String.join("\n", commandsList.getCommandsNames());

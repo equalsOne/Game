@@ -18,7 +18,7 @@ public class TakeCommand implements Command{
     }
 
     @Override
-    public String doCommand(String... parameters) {
+    public String ExecuteCommand(String... parameters) {
         if (parameters.length == 0) {
             return "You must specify the name of the thing you want to take";
         }
@@ -27,7 +27,7 @@ public class TakeCommand implements Command{
 
         Room currentRoom = gamePlan.getCurrentRoom();
 
-        Optional<ThingBase> thingCheck = currentRoom.getThingsInRoom().stream()
+        Optional<Thing> thingCheck = currentRoom.getThingsInRoom().stream()
                 .filter(t -> t.getName().equalsIgnoreCase(thingName))
                 .findFirst();
 
@@ -35,7 +35,7 @@ public class TakeCommand implements Command{
             return "There is no such thing in this room";
         }
 
-        ThingBase thing = thingCheck.get();
+        Thing thing = thingCheck.get();
 
         if (!thing.isCarriable()) {
             return "You can't carry this thing";

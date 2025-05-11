@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
-
+// singleton
 public class Bag {
     private final int capacity = 5;
-    private final List<ThingBase> thingsInBag;
+    private final List<Thing> thingsInBag;
 
     public Bag(){
         this.thingsInBag = new ArrayList<>();
@@ -18,11 +18,11 @@ public class Bag {
     public Collection<String> getThingsNamesInBag()
     {
         return thingsInBag.stream()
-            .map(ThingBase::getName)
+            .map(Thing::getName)
             .collect(Collectors.toList());
     }
 
-    public boolean addThing(ThingBase thing){
+    public boolean addThing(Thing thing){
         if(thingsInBag.size() < capacity &&
                 (thingsInBag.size() + thing.getSpace()) <= capacity
                 && thing.isCarriable())
@@ -32,7 +32,7 @@ public class Bag {
         else { return false; }
     }
 
-    public boolean removeThing(ThingBase thing){
+    public boolean removeThing(Thing thing){
         return thingsInBag.remove(thing);
     }
 
@@ -40,7 +40,7 @@ public class Bag {
         return thingsInBag.removeIf(t -> t.getName().equals(name));
     }
 
-    public ThingBase getThingByName(String name) {
+    public Thing getThingByName(String name) {
         return thingsInBag.stream()
                 .filter(t -> t.getName().equalsIgnoreCase(name))
                 .findFirst()

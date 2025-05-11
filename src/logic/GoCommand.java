@@ -6,7 +6,7 @@ public class GoCommand implements Command{
 
     public GoCommand(GamePlan gamePlan) { this.gamePlan = gamePlan; }
 
-    public String doCommand(String... parameters) {
+    public String ExecuteCommand(String... parameters) {
         if(parameters.length == 0){
             return "Enter the name of the room where you want to go.";
         }

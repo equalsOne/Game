@@ -14,14 +14,14 @@ public class DisposeCommand implements Command{
 
     public String getName() { return name; }
 
-    public String doCommand(String... parameters){
+    public String ExecuteCommand(String... parameters){
         if(parameters.length == 0){
             return "Write the name of the thing you want to throw out of your bag";
         }
 
         String thingName = parameters[0];
 
-        ThingBase thing = bag.getThingByName(thingName);
+        Thing thing = bag.getThingByName(thingName);
 
         if(thing == null) { return "You don't have that in your bag"; }
 

@@ -8,7 +8,7 @@ public class EndCommand implements Command{
     public EndCommand(Game currentGame) { this.currentGame = currentGame; }
 
     @Override
-    public String doCommand(String... parameters) {
+    public String ExecuteCommand(String... parameters) {
         if(parameters.length > 0){
             return "Sorry, this command doesn't exist. " +
                     "Maybe you've meant 'End', which ends the game?";

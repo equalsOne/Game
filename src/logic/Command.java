@@ -1,7 +1,7 @@
 package logic;
 
 public interface Command {
-    String doCommand(String... parameters);
+    String ExecuteCommand(String... parameters);
 
     String getName();
 }

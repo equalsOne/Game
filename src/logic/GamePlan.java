@@ -42,10 +42,10 @@ public class GamePlan {
         wizardSpace.setExits(treasureRoom, spiderCave);
         spiderCave.setExits(coinsCave, wizardSpace);
 
-        CharacterBase dwarf = new Dwarf();
+        Character dwarf = new Dwarf();
         dwarfHut.addCharacter(dwarf);
 
-        ThingBase coins = new Coins();
+        Thing coins = new Coins();
         coinsCave.addToThingsInRoom(coins);
 
         currentRoom = startingRoom;

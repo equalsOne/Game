@@ -1,13 +1,11 @@
 package logic;
 
-import java.util.Set;
-
-public class ThingBase {
+public class Thing {
     private String name;
     private int space;
     private boolean isCarriable;
 
-    public ThingBase(String name, int space, boolean isCarriable){
+    public Thing(String name, int space, boolean isCarriable){
         this.name = name;
         this.space = space;
         this.isCarriable = isCarriable;

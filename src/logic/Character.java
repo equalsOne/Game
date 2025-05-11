@@ -1,15 +1,15 @@
 package logic;
 
-public class CharacterBase {
+public class Character {
     private String name;
     private String messageForPlayer;
 
-    public CharacterBase(String name, String messageForPlayer){
+    public Character(String name, String messageForPlayer){
         this.name = name;
         this.messageForPlayer = messageForPlayer;
     }
 
-    public CharacterBase(String name)
+    public Character(String name)
     { this.name = name; }
 
     public String getName() { return name; }

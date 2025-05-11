@@ -12,4 +12,7 @@ public interface Game {
     GamePlan getGamePlan();
 
     void setOver(boolean isOver);
+
+    //getcurrentroom
+    //setcurrentroom
 }

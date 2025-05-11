@@ -1,6 +1,6 @@
 package logic;
 
-public class Wizard extends CharacterBase{
+public class Wizard extends Character {
     public Wizard()
     {
         super("Wizard", "Hi, I'm Wizard! " +
