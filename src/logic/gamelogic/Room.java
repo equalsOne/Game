@@ -1,6 +1,7 @@
 package logic.gamelogic;
 
 import logic.characters.Character;
+import logic.characters.Spider;
 import logic.things.Thing;
 
 import java.util.*;
@@ -19,6 +20,14 @@ public class Room {
         this.nearbyRooms = new HashMap<>();
         this.thingsInRoom = new ArrayList<>();
         this.charactersInRoom = new ArrayList<>();
+    }
+
+    public void removeCharacter(Character character) {
+        charactersInRoom.remove(character);
+    }
+
+    public boolean hasAliveSpider() {
+        return charactersInRoom.stream().anyMatch(c -> c instanceof Spider);
     }
 
     public void removeThing(Thing thing) { thingsInRoom.remove(thing); }

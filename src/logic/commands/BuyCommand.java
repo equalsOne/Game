@@ -9,19 +9,11 @@ import logic.things.Thing;
 public class BuyCommand implements Command{
     private static final String name = "Buy";
     private GamePlan gamePlan;
-    private Bag bag;
 
     public BuyCommand(GamePlan gamePlan) {
         this.gamePlan = gamePlan;
-        this.bag = gamePlan.getBag();
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
     public String ExecuteCommand(String... parameters) {
         if (parameters.length == 0) {
             return "You need to specify what you want to buy";
@@ -60,7 +52,7 @@ public class BuyCommand implements Command{
     }
 
     private boolean hasCoinsInBag() {
-        return bag.getThingsNamesInBag().stream()
+        return Bag.getInstance().getThingsNamesInBag().stream()
                 .anyMatch(name -> name.equalsIgnoreCase("coins"));
     }
 
@@ -73,13 +65,17 @@ public class BuyCommand implements Command{
 
     private boolean buyThing(Thing thing) {
         if (hasCoinsInBag()) {
-            bag.removeThing("coins");
+            Bag.getInstance().removeThing("coins");
 
-            bag.addThing(thing);
+            Bag.getInstance().addThing(thing);
 
             return true;
         }
 
         return false;
+    }
+
+    public String getName() {
+        return name;
     }
 }

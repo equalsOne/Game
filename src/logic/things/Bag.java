@@ -6,11 +6,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 // singleton
 public class Bag {
+    private static Bag instance;
     private final int capacity = 5;
     private final List<Thing> thingsInBag;
 
-    public Bag(){
-        this.thingsInBag = new ArrayList<>();
+    private Bag(){
+        thingsInBag = new ArrayList<>();
+    }
+
+    public static Bag getInstance(){
+        if(instance == null){
+            instance = new Bag();
+        }
+
+        return instance;
     }
 
     public int getCapacity() { return capacity; }
@@ -45,5 +54,10 @@ public class Bag {
                 .filter(t -> t.getName().equalsIgnoreCase(name))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public boolean hasThing(String name) {
+        return thingsInBag.stream().anyMatch(thing ->
+                thing.getName().equalsIgnoreCase(name));
     }
 }

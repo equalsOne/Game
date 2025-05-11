@@ -1,14 +1,14 @@
 package uiText;
 
-import logic.gamelogic.Game;
+import logic.gamelogic.IGame;
 
 import java.io.*;
 import java.util.Scanner;
 
 public class UserTextInterface {
-    private Game currentGame;
+    private IGame currentIGame;
 
-    public UserTextInterface(Game currentGame) { this.currentGame = currentGame; }
+    public UserTextInterface(IGame currentIGame) { this.currentIGame = currentIGame; }
 
     private String readString(){
         Scanner scanner = new Scanner(System.in);
@@ -19,15 +19,15 @@ public class UserTextInterface {
     }
 
     public void play(){
-        System.out.println(currentGame.inceptionMessage());
+        System.out.println(currentIGame.inceptionMessage());
 
-        while(!currentGame.isOver()){
+        while(!currentIGame.isOver()){
             String message = readString();
 
-            System.out.println(currentGame.handleCommand(message));
+            System.out.println(currentIGame.handleCommand(message));
         }
 
-        System.out.println(currentGame.endMessage());
+        System.out.println(currentIGame.endMessage());
     }
 
     public void playFromFile (String fileName) {
@@ -36,28 +36,28 @@ public class UserTextInterface {
 
                 PrintWriter writing = new PrintWriter(new FileWriter("results.txt"))
         ) {
-            System.out.println(currentGame.inceptionMessage());
+            System.out.println(currentIGame.inceptionMessage());
 
-            writing.println(currentGame.inceptionMessage());
+            writing.println(currentIGame.inceptionMessage());
 
 
             for (String string = reading.readLine();
-                 string != null && !currentGame.isOver(); string = reading.readLine())
+                 string != null && !currentIGame.isOver(); string = reading.readLine())
             {
                 System.out.println("> " + string);
 
                 writing.println("> " + string);
 
-                String out = currentGame.handleCommand(string);
+                String out = currentIGame.handleCommand(string);
 
                 System.out.println(out);
 
                 writing.println(out);
             }
 
-            System.out.println(currentGame.endMessage());
+            System.out.println(currentIGame.endMessage());
 
-            writing.println(currentGame.endMessage());
+            writing.println(currentIGame.endMessage());
 
         } catch (FileNotFoundException e) {
             File file = new File(fileName);

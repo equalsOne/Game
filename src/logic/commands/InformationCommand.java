@@ -7,11 +7,9 @@ import logic.gamelogic.Room;
 public class InformationCommand implements Command{
     private static final String name = "Information";
     private GamePlan gamePlan;
-    private Bag bag;
 
     public InformationCommand(GamePlan gamePlan){
         this.gamePlan = gamePlan;
-        this.bag = gamePlan.getBag();
     }
 
     public String getName() { return name; }
@@ -26,8 +24,10 @@ public class InformationCommand implements Command{
         String message = parameters[0].toLowerCase();
 
         if(message.equals("bag")){
-            return bag.getThingsNamesInBag().isEmpty() ? "Your bag is empty!" :
-                    String.join(" ", bag.getThingsNamesInBag());
+            return Bag.getInstance().getThingsNamesInBag().isEmpty() ?
+                    "Your bag is empty!" :
+                    String.join(" ",
+                            Bag.getInstance().getThingsNamesInBag());
         }
 
         return gamePlan.getRooms().values().stream()

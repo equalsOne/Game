@@ -12,12 +12,6 @@ public class TalkCommand implements Command{
         this.gamePlan = gamePlan;
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
     public String ExecuteCommand(String... parameters) {
         if (parameters.length == 0) {
             return "Who do you want to talk to? Write the character's name after 'talk'";
@@ -37,5 +31,9 @@ public class TalkCommand implements Command{
             return character.getMessageForPlayer();
         }
         else { return "There's no one here with that name to talk to"; }
+    }
+
+    public String getName() {
+        return name;
     }
 }

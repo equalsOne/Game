@@ -2,6 +2,8 @@ package logic.gamelogic;
 
 import logic.characters.Character;
 import logic.characters.Dwarf;
+import logic.characters.Spider;
+import logic.characters.Wizard;
 import logic.things.Bag;
 import logic.things.Coins;
 import logic.things.Thing;
@@ -12,7 +14,6 @@ import java.util.Map;
 public class GamePlan {
     private Room currentRoom;
     private Map<String, Room> rooms;
-    private Bag bag = new Bag();
 
     public GamePlan(){
         this.rooms = new HashMap<>();
@@ -21,8 +22,6 @@ public class GamePlan {
 
         createGameMap(factory);
     }
-
-    public Bag getBag() { return bag; }
 
     public Map<String, Room> getRooms() { return rooms; }
 
@@ -50,6 +49,14 @@ public class GamePlan {
 
         Character dwarf = new Dwarf();
         dwarfHut.addCharacter(dwarf);
+
+        Spider spider = new Spider();
+        spiderCave.addCharacter(spider);
+
+        Wizard wizard = new Wizard();
+        wizardSpace.addCharacter(wizard);
+
+        spider.addObserver(wizard);
 
         Thing coins = new Coins();
         coinsCave.addToThingsInRoom(coins);

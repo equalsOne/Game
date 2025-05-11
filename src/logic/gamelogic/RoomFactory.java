@@ -1,5 +1,5 @@
 package logic.gamelogic;
-
+//factory
 public class RoomFactory {
     public Room createStartingRoom(){
         return new Room("Start",

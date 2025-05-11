@@ -1,13 +1,13 @@
 package logic.commands;
 
-import logic.gamelogic.Game;
+import logic.gamelogic.IGame;
 
 public class EndCommand implements Command{
 
     private static final String name = "End";
-    private Game currentGame;
+    private IGame currentIGame;
 
-    public EndCommand(Game currentGame) { this.currentGame = currentGame; }
+    public EndCommand(IGame currentIGame) { this.currentIGame = currentIGame; }
 
     @Override
     public String ExecuteCommand(String... parameters) {
@@ -17,7 +17,7 @@ public class EndCommand implements Command{
         }
         else
         {
-            currentGame.setOver(true);
+            currentIGame.setOver(true);
 
             return "The game has been terminated";
         }
