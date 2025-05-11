@@ -4,9 +4,9 @@ import uiText.UserTextInterface;
 
 public class Start {
     public static void main(String[] args) {
-        IGame currentIGame = new Game();
+        IGame currentGame = new Game();
 
-        UserTextInterface textInterface = new UserTextInterface(currentIGame);
+        UserTextInterface textInterface = new UserTextInterface(currentGame);
 
         if(args.length == 0){
             textInterface.play();
