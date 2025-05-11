@@ -16,7 +16,7 @@ public class BuyCommand implements Command{
 
     public String ExecuteCommand(String... parameters) {
         if (parameters.length == 0) {
-            return "You need to specify what you want to buy";
+            return "You can buy only sword - type 'sword' after 'buy'";
         }
         else if(!gamePlan.getCurrentRoom().getName().equals("DwarfHut")){
             return "There is no dwarf here to buy anything from";
