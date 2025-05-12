@@ -77,6 +77,30 @@ public class Room {
         return "Nearby rooms: " + String.join(", ", nearbyRooms.keySet());
     }
 
+    public String informationDescription(){
+        StringBuilder builder = new StringBuilder();
+
+        builder.append("Information on this room: ").append("\n").append(name).append("\n")
+                .append(description).append("\n")
+                .append(nearbyRoomsDescription());
+
+        if (!thingsInRoom.isEmpty()) {
+            builder.append("\nThings here: ")
+                    .append(thingsInRoom.stream()
+                            .map(Thing::getName)
+                            .collect(Collectors.joining(", ")));
+        }
+
+        if(!charactersInRoom.isEmpty()){
+            builder.append("\nCharacters here: ")
+                    .append(charactersInRoom.stream()
+                            .map(Character::getName)
+                            .collect(Collectors.joining(", ")));
+        }
+
+        return builder.toString();
+    }
+
     public String extendedDescription(){
         StringBuilder builder = new StringBuilder();
 

@@ -33,7 +33,7 @@ public class InformationCommand implements Command{
         return gamePlan.getRooms().values().stream()
                 .filter(room -> room.getName().equalsIgnoreCase(message))
                 .findFirst()
-                .map(Room::extendedDescription)
+                .map(Room::informationDescription)
                 .orElse("There is no such room. Check the name again.");
     }
 }
