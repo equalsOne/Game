@@ -28,6 +28,11 @@ public class Wizard extends Character implements Observer {
     }
 
     public String tradeWithPlayer() {
+        if(!canReward()){
+            return "Wizard: I can't trade with you while " +
+                    "the spider is still alive!";
+        }
+
         if (Bag.getInstance().hasThing("SpiderSkin")) {
             Bag.getInstance().removeThing("SpiderSkin");
 
