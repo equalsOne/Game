@@ -1,10 +1,8 @@
 package logic.gamelogic;
 
 import logic.characters.*;
-import logic.characters.Character;
 import logic.things.*;
 
-import java.security.Guard;
 import java.util.HashMap;
 import java.util.Map;
 

@@ -32,11 +32,6 @@ public class Spider extends Character implements Observable {
     }
 
     @Override
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
-    }
-
-    @Override
     public void notifyObservers() {
         for (Observer observer : observers) {
             observer.update();

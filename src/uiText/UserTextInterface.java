@@ -8,7 +8,8 @@ import java.util.Scanner;
 public class UserTextInterface {
     private IGame currentIGame;
 
-    public UserTextInterface(IGame currentIGame) { this.currentIGame = currentIGame; }
+    public UserTextInterface(IGame currentIGame)
+    { this.currentIGame = currentIGame; }
 
     private String readString(){
         Scanner scanner = new Scanner(System.in);

@@ -17,7 +17,8 @@ public class InformationCommand implements Command{
     public String ExecuteCommand(String... parameters){
         if(parameters.length == 0){
             return "This command doesn't exist. " +
-                    "Type the name of the room or 'bag' to see the " +
+                    "Type the name of the room or 'bag' " +
+                    "(e.g. 'information bag') to see the " +
                     "whole information on that object.";
         }
 
@@ -34,6 +35,6 @@ public class InformationCommand implements Command{
                 .filter(room -> room.getName().equalsIgnoreCase(message))
                 .findFirst()
                 .map(Room::informationDescription)
-                .orElse("There is no such room. Check the name again.");
+                .orElse("There is no such room. Check the name again");
     }
 }

@@ -3,7 +3,6 @@ package logic.commands;
 import logic.gamelogic.IGame;
 
 public class EndCommand implements Command{
-
     private static final String NAME = "End";
     private IGame currentIGame;
 

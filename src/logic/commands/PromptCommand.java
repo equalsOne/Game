@@ -12,7 +12,6 @@ public class PromptCommand implements Command{
 
     public String getName() { return NAME; }
 
-    @Override
     public String ExecuteCommand(String... parameters) {
         return parameters.length != 0 ? "Sorry, this command doesn't exist. " +
                 "\nMaybe you've meant 'Prompt', which helps you to find out all the commands?"

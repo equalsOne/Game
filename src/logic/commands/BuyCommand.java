@@ -46,7 +46,7 @@ public class BuyCommand implements Command{
         if (buyThing(thingToBuy)) {
             dwarf.deleteGood(thingToBuy);
 
-            return "You have bought the " + thingToBuy.getName();
+            return "You have bought the " + thingToBuy.getName() + " for 3 coins";
         }
         else { return "Something went wrong"; }
     }

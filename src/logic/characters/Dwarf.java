@@ -1,6 +1,5 @@
 package logic.characters;
 
-import logic.things.MagicOrb;
 import logic.things.Sword;
 import logic.things.Thing;
 

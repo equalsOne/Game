@@ -13,7 +13,7 @@ public class Wizard extends Character implements Observer {
         super("Wizard", "Wizard: 'Hi, I'm Wizard! " +
                 "\nIf you save me from the spider I've once mistakenly created, " +
                 "I will surely award you' " +
-                "\n \nTo trade with the wizard, type 'trade'");
+                "\n\nTo trade with the wizard, type 'trade'");
     }
 
     public void update(){
@@ -42,7 +42,9 @@ public class Wizard extends Character implements Observer {
             Bag.getInstance().addThing(key);
 
             return "Wizard: 'Thank you for saving me! " +
-                    "\nHere is a key for the treasures'";
+                    "\nHere is a key for the treasures' " +
+                    "\n\nYou obtained the secret key! " +
+                    "Now, you can proceed to the treasure room to open the gems";
         }
         else { return "Wizard: 'You need the spider's skin to trade with me!'"; }
     }

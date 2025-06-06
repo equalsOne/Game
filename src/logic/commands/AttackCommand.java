@@ -7,10 +7,10 @@ import logic.gamelogic.*;
 
 public class AttackCommand implements Command{
     private static final String NAME = "Attack";
-    private final GamePlan GAME_PLAN;
+    private GamePlan gamePlan;
 
     public AttackCommand(GamePlan gamePlan) {
-        this.GAME_PLAN = gamePlan;
+        this.gamePlan = gamePlan;
     }
 
     public String ExecuteCommand(String... parameters) {
@@ -31,7 +31,7 @@ public class AttackCommand implements Command{
             return "You need a sword to attack!";
         }
 
-        Room currentRoom = GAME_PLAN.getCurrentRoom();
+        Room currentRoom = gamePlan.getCurrentRoom();
 
         Character spiderCharacter =
                 currentRoom.getCharactersInRoom().stream()
@@ -54,7 +54,7 @@ public class AttackCommand implements Command{
         if(!Bag.getInstance().addThing(skin)){
             currentRoom.addToThingsInRoom(skin);
 
-            return "You've killed the spider, but your bag is full... " +
+            return "\nYou've killed the spider, but your bag is full... " +
                     "\nThe spider skin is now on the ground, " +
                     "you can pick it up when you'll have some space in your bag!";
         }

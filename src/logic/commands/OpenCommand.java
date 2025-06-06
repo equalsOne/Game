@@ -5,7 +5,7 @@ import logic.gamelogic.*;
 import logic.things.Bag;
 
 public class OpenCommand implements Command{
-    private static final String NAME = "open";
+    private static final String NAME = "Open";
     private GamePlan gamePlan;
     private Game game;
 
