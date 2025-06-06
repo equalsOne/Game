@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
 // singleton
 public class Bag {
     private static Bag instance;
-    private final int capacity = 5;
-    private final List<Thing> thingsInBag;
+    private final int CAPACITY = 5;
+    private final List<Thing> THINGS_IN_BAG;
 
     private Bag(){
-        thingsInBag = new ArrayList<>();
+        THINGS_IN_BAG = new ArrayList<>();
     }
 
     public static Bag getInstance(){
@@ -22,42 +22,43 @@ public class Bag {
         return instance;
     }
 
-    public int getCapacity() { return capacity; }
+    public int getCapacity() { return CAPACITY; }
 
     public Collection<String> getThingsNamesInBag()
     {
-        return thingsInBag.stream()
+        return THINGS_IN_BAG.stream()
             .map(Thing::getName)
             .collect(Collectors.toList());
     }
 
     public boolean addThing(Thing thing){
-        if(thingsInBag.size() < capacity &&
-                (thingsInBag.size() + thing.getSpace()) <= capacity
+        if(THINGS_IN_BAG.stream().mapToInt(Thing::getSpace).sum() < CAPACITY &&
+                (THINGS_IN_BAG.stream().mapToInt(Thing::getSpace).sum() +
+                        thing.getSpace()) <= CAPACITY
                 && thing.isCarriable())
         {
-            return thingsInBag.add(thing);
+            return THINGS_IN_BAG.add(thing);
         }
         else { return false; }
     }
 
     public boolean removeThing(Thing thing){
-        return thingsInBag.remove(thing);
+        return THINGS_IN_BAG.remove(thing);
     }
 
     public boolean removeThing(String name){
-        return thingsInBag.removeIf(t -> t.getName().equals(name));
+        return THINGS_IN_BAG.removeIf(t -> t.getName().equals(name));
     }
 
     public Thing getThingByName(String name) {
-        return thingsInBag.stream()
+        return THINGS_IN_BAG.stream()
                 .filter(t -> t.getName().equalsIgnoreCase(name))
                 .findFirst()
                 .orElse(null);
     }
 
     public boolean hasThing(String name) {
-        return thingsInBag.stream().anyMatch(thing ->
+        return THINGS_IN_BAG.stream().anyMatch(thing ->
                 thing.getName().equalsIgnoreCase(name));
     }
 }

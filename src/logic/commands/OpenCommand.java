@@ -1,15 +1,13 @@
 package logic.commands;
 
+import logic.characters.TreasureGuard;
 import logic.gamelogic.*;
 import logic.things.Bag;
 
-
 public class OpenCommand implements Command{
-    private static final String name = "open";
+    private static final String NAME = "open";
     private GamePlan gamePlan;
     private Game game;
-
-    private boolean treasureOpened = false;
 
     public OpenCommand(GamePlan gamePlan, Game game) {
         this.gamePlan = gamePlan;
@@ -33,7 +31,17 @@ public class OpenCommand implements Command{
             return "The treasure is locked. You need a key to open it";
         }
 
-        treasureOpened = true;
+        TreasureGuard guard =
+                (TreasureGuard) currentRoom.getCharactersInRoom().stream()
+                .filter(c -> c instanceof TreasureGuard)
+                .findFirst()
+                .orElse(null);
+
+        if (guard != null && !guard.isRiddleSolved()) {
+            return "The Treasure Guard blocks your way: " +
+                    "\nEven with the key, you shall not pass without " +
+                    "solving my riddle!";
+        }
 
         game.setOver(true);
 
@@ -42,6 +50,6 @@ public class OpenCommand implements Command{
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 }

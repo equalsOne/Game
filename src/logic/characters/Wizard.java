@@ -10,9 +10,10 @@ public class Wizard extends Character implements Observer {
 
     public Wizard()
     {
-        super("Wizard", "Hi, I'm Wizard! " +
-                "If you save me from the spider I've once mistakenly created, " +
-                "I will surely award you");
+        super("Wizard", "Wizard: 'Hi, I'm Wizard! " +
+                "\nIf you save me from the spider I've once mistakenly created, " +
+                "I will surely award you' " +
+                "\n \nTo trade with the wizard, type 'trade'");
     }
 
     public void update(){
@@ -29,8 +30,8 @@ public class Wizard extends Character implements Observer {
 
     public String tradeWithPlayer() {
         if(!canReward()){
-            return "Wizard: I can't trade with you while " +
-                    "the spider is still alive!";
+            return "Wizard: 'I can't trade with you while " +
+                    "the spider is still alive!'";
         }
 
         if (Bag.getInstance().hasThing("SpiderSkin")) {
@@ -40,9 +41,9 @@ public class Wizard extends Character implements Observer {
 
             Bag.getInstance().addThing(key);
 
-            return "Thank you for saving me! " +
-                    "\nHere is a key for the treasures";
+            return "Wizard: 'Thank you for saving me! " +
+                    "\nHere is a key for the treasures'";
         }
-        else { return "You need a spider's skin to trade with me!"; }
+        else { return "Wizard: 'You need the spider's skin to trade with me!'"; }
     }
 }

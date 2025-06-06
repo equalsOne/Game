@@ -6,11 +6,11 @@ import logic.things.*;
 import logic.gamelogic.*;
 
 public class AttackCommand implements Command{
-    private static final String name = "Attack";
-    private final GamePlan gamePlan;
+    private static final String NAME = "Attack";
+    private final GamePlan GAME_PLAN;
 
     public AttackCommand(GamePlan gamePlan) {
-        this.gamePlan = gamePlan;
+        this.GAME_PLAN = gamePlan;
     }
 
     public String ExecuteCommand(String... parameters) {
@@ -31,7 +31,7 @@ public class AttackCommand implements Command{
             return "You need a sword to attack!";
         }
 
-        Room currentRoom = gamePlan.getCurrentRoom();
+        Room currentRoom = GAME_PLAN.getCurrentRoom();
 
         Character spiderCharacter =
                 currentRoom.getCharactersInRoom().stream()
@@ -49,7 +49,15 @@ public class AttackCommand implements Command{
 
         currentRoom.removeCharacter(spider);
 
-        Bag.getInstance().addThing(new SpiderSkin());
+        SpiderSkin skin = new SpiderSkin();
+
+        if(!Bag.getInstance().addThing(skin)){
+            currentRoom.addToThingsInRoom(skin);
+
+            return "You've killed the spider, but your bag is full... " +
+                    "\nThe spider skin is now on the ground, " +
+                    "you can pick it up when you'll have some space in your bag!";
+        }
 
         return "\nYou have killed the spider! " +
                 "You picked up its skin. " +
@@ -57,6 +65,6 @@ public class AttackCommand implements Command{
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 }

@@ -23,7 +23,7 @@ public class RoomFactory {
 
     public Room createWizardSpace(){
         return new Room("WizardSpace",
-                "If you have spider's skin, " +
+                "If you have the spider's skin, " +
                         "wizard will unravel the treasures for you!");
     }
 

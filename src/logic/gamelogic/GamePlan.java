@@ -1,13 +1,10 @@
 package logic.gamelogic;
 
+import logic.characters.*;
 import logic.characters.Character;
-import logic.characters.Dwarf;
-import logic.characters.Spider;
-import logic.characters.Wizard;
-import logic.things.Bag;
-import logic.things.Coins;
-import logic.things.Thing;
+import logic.things.*;
 
+import java.security.Guard;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,8 +44,7 @@ public class GamePlan {
         wizardSpace.setExits(treasureRoom, spiderCave);
         spiderCave.setExits(coinsCave, wizardSpace);
 
-        Character dwarf = new Dwarf();
-        dwarfHut.addCharacter(dwarf);
+        dwarfHut.addCharacter(new Dwarf());
 
         Spider spider = new Spider();
         spiderCave.addCharacter(spider);
@@ -58,8 +54,15 @@ public class GamePlan {
 
         spider.addObserver(wizard);
 
-        Thing coins = new Coins();
-        coinsCave.addToThingsInRoom(coins);
+        coinsCave.addToThingsInRoom(new Coins());
+
+        startingRoom.addToThingsInRoom(new Statue());
+
+        coinsCave.addCharacter(new Owl());
+
+        treasureRoom.addCharacter(new TreasureGuard());
+
+        startingRoom.addToThingsInRoom(new Portal());
 
         currentRoom = startingRoom;
     }

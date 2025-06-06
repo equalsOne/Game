@@ -80,19 +80,19 @@ public class Room {
     public String informationDescription(){
         StringBuilder builder = new StringBuilder();
 
-        builder.append("Information on this room: ").append("\n").append(name).append("\n")
-                .append(description).append("\n")
+        builder.append("Information on this room: ").append("\n \n").append(name).append("\n")
+                .append(description).append("\n \n")
                 .append(nearbyRoomsDescription());
 
         if (!thingsInRoom.isEmpty()) {
-            builder.append("\nThings here: ")
+            builder.append("\n \nThings here: ")
                     .append(thingsInRoom.stream()
                             .map(Thing::getName)
                             .collect(Collectors.joining(", ")));
         }
 
         if(!charactersInRoom.isEmpty()){
-            builder.append("\nCharacters here: ")
+            builder.append("\n \nCharacters here: ")
                     .append(charactersInRoom.stream()
                             .map(Character::getName)
                             .collect(Collectors.joining(", ")));
@@ -104,19 +104,19 @@ public class Room {
     public String extendedDescription(){
         StringBuilder builder = new StringBuilder();
 
-        builder.append("You are in ").append(name).append("\n")
-                .append(description).append("\n")
+        builder.append("You are in ").append(name).append("\n \n")
+                .append(description).append("\n \n")
                 .append(nearbyRoomsDescription());
 
         if (!thingsInRoom.isEmpty()) {
-            builder.append("\nThings here: ")
+            builder.append("\n \nThings here: ")
                     .append(thingsInRoom.stream()
                             .map(Thing::getName)
                             .collect(Collectors.joining(", ")));
         }
 
         if(!charactersInRoom.isEmpty()){
-            builder.append("\nCharacters here: ")
+            builder.append("\n \nCharacters here: ")
                     .append(charactersInRoom.stream()
                             .map(Character::getName)
                             .collect(Collectors.joining(", ")));

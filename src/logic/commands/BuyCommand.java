@@ -7,7 +7,7 @@ import logic.things.Sword;
 import logic.things.Thing;
 
 public class BuyCommand implements Command{
-    private static final String name = "Buy";
+    private static final String NAME = "Buy";
     private GamePlan gamePlan;
 
     public BuyCommand(GamePlan gamePlan) {
@@ -16,7 +16,7 @@ public class BuyCommand implements Command{
 
     public String ExecuteCommand(String... parameters) {
         if (parameters.length == 0) {
-            return "You can buy only sword - type 'sword' after 'buy'";
+            return "You can only buy sword. If you want to, type 'buy sword'";
         }
         else if(!gamePlan.getCurrentRoom().getName().equals("DwarfHut")){
             return "There is no dwarf here to buy anything from";
@@ -40,7 +40,7 @@ public class BuyCommand implements Command{
         Thing thingToBuy = getThingToBuy(thingName);
 
         if (thingToBuy == null) {
-            return "This thing is not available for purchase";
+            return "You can only buy sword. If you want to, type 'buy sword'";
         }
 
         if (buyThing(thingToBuy)) {
@@ -76,6 +76,6 @@ public class BuyCommand implements Command{
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 }

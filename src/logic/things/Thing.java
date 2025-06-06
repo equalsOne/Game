@@ -11,10 +11,14 @@ public class Thing {
         this.isCarriable = isCarriable;
     }
 
+    public Thing(String name, boolean isCarriable){
+        this.name = name;
+        this.isCarriable = isCarriable;
+    }
+
     public void setName(String name) { this.name = name; }
     public String getName() { return name; }
 
-    public void setSpace(int space) { this.space = space; }
     public int getSpace() { return space; }
 
     public boolean isCarriable() { return isCarriable; }

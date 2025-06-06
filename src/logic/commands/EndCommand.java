@@ -4,12 +4,11 @@ import logic.gamelogic.IGame;
 
 public class EndCommand implements Command{
 
-    private static final String name = "End";
+    private static final String NAME = "End";
     private IGame currentIGame;
 
     public EndCommand(IGame currentIGame) { this.currentIGame = currentIGame; }
 
-    @Override
     public String ExecuteCommand(String... parameters) {
         if(parameters.length > 0){
             return "Sorry, this command doesn't exist. " +
@@ -23,8 +22,7 @@ public class EndCommand implements Command{
         }
     }
 
-    @Override
     public String getName() {
-        return name;
+        return NAME;
     }
 }

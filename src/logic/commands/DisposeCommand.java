@@ -5,16 +5,17 @@ import logic.gamelogic.GamePlan;
 import logic.things.Thing;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class DisposeCommand implements Command{
-    private static final String name = "Dispose";
+    private static final String NAME = "Dispose";
     private GamePlan gamePlan;
 
     public DisposeCommand(GamePlan gamePlan){
         this.gamePlan = gamePlan;
     }
 
-    public String getName() { return name; }
+    public String getName() { return NAME; }
 
     public String ExecuteCommand(String... parameters){
         if(parameters.length == 0){
@@ -25,7 +26,15 @@ public class DisposeCommand implements Command{
 
         Thing thing = Bag.getInstance().getThingByName(thingName);
 
-        if(thing == null) { return "You don't have that in your bag"; }
+        if(thing == null) {
+            String items = Bag.getInstance().getThingsNamesInBag().stream()
+                    .collect(Collectors.joining(", "));
+
+            return items.isBlank() ?
+                    "You don't have that in your bag. Your bag is empty!" :
+                    "You don't have that in your bag. " +
+                            "Things in your bag are: " + items;
+        }
 
         Bag.getInstance().removeThing(thingName);
 

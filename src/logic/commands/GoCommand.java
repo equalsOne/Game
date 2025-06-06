@@ -5,7 +5,7 @@ import logic.gamelogic.GamePlan;
 import logic.gamelogic.Room;
 
 public class GoCommand implements Command{
-    private static final String name = "Go";
+    private static final String NAME = "Go";
     private GamePlan gamePlan;
 
     public GoCommand(GamePlan gamePlan) { this.gamePlan = gamePlan; }
@@ -32,7 +32,8 @@ public class GoCommand implements Command{
                 && direction.equalsIgnoreCase("spiderCave")) {
             if (hasAliveSpiderInRoom("SpiderCave")) {
                 return "There is a spider in the Spider Cave! " +
-                        "\nYou can't go there until it is defeated.";
+                        "\nYou can't go there until it is defeated " +
+                        "\nTo defeat the spider, use the 'attack' command";
             }
         }
 
@@ -43,7 +44,9 @@ public class GoCommand implements Command{
 
             return aimRoom.extendedDescription();
         }
-        else { return "This place doesn't exist..."; }
+        else { return "You can't go there... " +
+                "\nYou can only go to the nearby rooms. \n"
+                + currentRoom.nearbyRoomsDescription(); }
     }
 
     private boolean hasAliveSpiderInRoom(String name) {
@@ -56,6 +59,6 @@ public class GoCommand implements Command{
         return false;
     }
 
-    public String getName() { return name; }
+    public String getName() { return NAME; }
 }
 

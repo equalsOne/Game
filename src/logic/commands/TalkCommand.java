@@ -1,11 +1,12 @@
 package logic.commands;
 
 import logic.characters.Character;
+import logic.characters.Dwarf;
 import logic.gamelogic.GamePlan;
 import logic.gamelogic.Room;
 
 public class TalkCommand implements Command{
-    private static final String name = "Talk";
+    private static final String NAME = "Talk";
     private GamePlan gamePlan;
 
     public TalkCommand(GamePlan gamePlan) {
@@ -14,7 +15,8 @@ public class TalkCommand implements Command{
 
     public String ExecuteCommand(String... parameters) {
         if (parameters.length == 0) {
-            return "Who do you want to talk to? Write the character's name after 'talk'";
+            return "Who do you want to talk to? Write the " +
+                    "character's name after 'talk'";
         }
 
         String characterName = parameters[0];
@@ -34,6 +36,6 @@ public class TalkCommand implements Command{
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 }

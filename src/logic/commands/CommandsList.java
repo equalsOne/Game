@@ -3,16 +3,16 @@ package logic.commands;
 import java.util.*;
 
 public class CommandsList {
-    private final Map<String, Command> commandsList;
+    private final Map<String, Command> COMMANDS_LIST;
 
-    public CommandsList() { commandsList = new HashMap<>(); }
+    public CommandsList() { COMMANDS_LIST = new HashMap<>(); }
 
     public void addCommand(Command command)
-    { commandsList.put(command.getName().toLowerCase(), command); }
+    { COMMANDS_LIST.put(command.getName().toLowerCase(), command); }
 
     public Command getCommand(String name)
-    { return commandsList.get(name.toLowerCase()); }
+    { return COMMANDS_LIST.get(name.toLowerCase()); }
 
     public Set<String> getCommandsNames()
-    { return commandsList.keySet(); }
+    { return COMMANDS_LIST.keySet(); }
 }

@@ -1,5 +1,6 @@
 package logic.characters;
 
+import logic.things.MagicOrb;
 import logic.things.Sword;
 import logic.things.Thing;
 
@@ -10,9 +11,9 @@ public class Dwarf extends Character {
     private Map<String, Thing> goods;
 
     public Dwarf(){
-        super("Dwarf", "Hi, I'm the Cave Dwarf! " +
-                "Do you have any coins? I can sell you something precious. " +
-                "Write 'Market' and I'll show you what I have");
+        super("Dwarf", "Dwarf: 'Hi, I'm the Cave Dwarf! " +
+                "\nDo you have any coins? Type 'buy' and I will " +
+                "sell you something precious'");
 
         goods = new HashMap<>();
 
@@ -20,7 +21,8 @@ public class Dwarf extends Character {
     }
 
     private void addGoods(Thing thing){
-        goods.put(thing.getName().toLowerCase(), thing);
+        goods.put(thing.getName().toLowerCase(),
+                thing);
     }
 
     public void deleteGood(Thing thing){

@@ -8,7 +8,7 @@ import logic.things.Thing;
 import java.util.Optional;
 
 public class TakeCommand implements Command{
-    private static final String name = "Take";
+    private static final String NAME = "Take";
     private GamePlan gamePlan;
 
     public TakeCommand(GamePlan gamePlan) {
@@ -48,6 +48,6 @@ public class TakeCommand implements Command{
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 }

@@ -5,7 +5,7 @@ import logic.gamelogic.GamePlan;
 import logic.gamelogic.Room;
 
 public class TradeCommand implements Command{
-    private static final String name = "Trade";
+    private static final String NAME = "Trade";
     private GamePlan gamePlan;
 
     public TradeCommand(GamePlan gamePlan) {
@@ -34,6 +34,6 @@ public class TradeCommand implements Command{
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 }

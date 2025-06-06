@@ -5,14 +5,14 @@ import logic.gamelogic.GamePlan;
 import logic.gamelogic.Room;
 
 public class InformationCommand implements Command{
-    private static final String name = "Information";
+    private static final String NAME = "Information";
     private GamePlan gamePlan;
 
     public InformationCommand(GamePlan gamePlan){
         this.gamePlan = gamePlan;
     }
 
-    public String getName() { return name; }
+    public String getName() { return NAME; }
 
     public String ExecuteCommand(String... parameters){
         if(parameters.length == 0){
@@ -26,7 +26,7 @@ public class InformationCommand implements Command{
         if(message.equals("bag")){
             return Bag.getInstance().getThingsNamesInBag().isEmpty() ?
                     "Your bag is empty!" :
-                    String.join(" ",
+                    "Things in your bag are: " + String.join(", ",
                             Bag.getInstance().getThingsNamesInBag());
         }
 
