@@ -4,14 +4,29 @@ import logic.characters.TreasureGuard;
 import logic.gamelogic.GamePlan;
 import logic.gamelogic.Room;
 
+/*******************************************************************************
+ * Class AnswerCommand implements the Command interface, the command for answering treasure guard's questions
+ * @author    Ihor Skosar
+ * @version   LS 2024/2025, June 2025
+ */
 public class AnswerCommand implements Command{
     private static final String NAME = "Answer";
     private GamePlan gamePlan;
 
+    /**
+     *  Class constructor
+     *
+     * @param gamePlan as current game plan
+     */
     public AnswerCommand(GamePlan gamePlan) {
         this.gamePlan = gamePlan;
     }
 
+    /**
+     * Returns the result string after executing the answer command
+     *
+     * @return different strings
+     */
     public String ExecuteCommand(String... parameters) {
         Room currentRoom = gamePlan.getCurrentRoom();
 
@@ -24,7 +39,7 @@ public class AnswerCommand implements Command{
             return "There's no one here to answer";
         }
 
-        if (parameters.length == 0) {
+        if (parameters.length != 1) {
             return "Answer what? Type the single word you think is correct";
         }
 
@@ -42,7 +57,7 @@ public class AnswerCommand implements Command{
 
         String answer = parameters[0].toLowerCase();
 
-        if (answer.equals("echo")) {
+        if (answer.equalsIgnoreCase("echo")) {
             guard.setRiddleSolved(true);
 
             return "Correct! You may now proceed to open the treasure";
@@ -72,6 +87,11 @@ public class AnswerCommand implements Command{
         }
     }
 
+    /**
+     * Returns the command's name
+     *
+     * @return NAME
+     */
     public String getName() {
         return NAME;
     }

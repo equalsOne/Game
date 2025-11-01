@@ -8,6 +8,27 @@ import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit tests for the game mechanics and commands.
+ *
+ * Tests cover:
+ * - Picking up items (TakeCommand)
+ * - Buying items (BuyCommand)
+ * - Combat interactions (AttackCommand)
+ * - Unlocking treasures (OpenCommand)
+ * - Answering riddles (AnswerCommand)
+ * - Bribing characters (BribeCommand)
+ * - Using teleport (TeleportCommand)
+ * - Bag capacity and carriability constraints
+ *
+ * Before each test, the game state is reset, and the bag is cleared.
+ *
+ * These tests validate the correct game state changes and expected outputs
+ * in response to various player commands.
+ *
+ * Author: Ihor Skosar
+ * Version: LS 2024/2025, June 2025
+ */
 public class GameTests {
     private Game game;
     private GamePlan gamePlan;
@@ -34,6 +55,7 @@ public class GameTests {
         Bag.getInstance().getThingsNamesInBag().forEach(name -> Bag.getInstance().removeThing(name));
     }
 
+    // Example test verifying the player can pick up coins
     @Test
     public void testTakeThing() {
         Room coinsCave = gamePlan.getRooms().get("CoinsCave");

@@ -4,11 +4,28 @@ import logic.commands.*;
 
 import java.util.Arrays;
 
+/**
+ * Game class implements the IGame interface and represents
+ * the main controller for the game logic and command handling.
+ *
+ * It initializes the game state, commands, and manages the game lifecycle.
+ *
+ * The class handles user input by parsing commands and delegating
+ * execution to appropriate command implementations.
+ *
+ * It also provides starting and ending messages for the game session.
+ *
+ * @author Ihor Skosar
+ * @version LS 2024/2025, June 2025
+ */
 public class Game implements IGame {
     private CommandsList commandsList;
     private GamePlan gamePlan;
     private boolean isOver = false;
 
+    /**
+     * Constructs a new Game instance, initializes the game plan and commands.
+     */
     public Game(){
         this.commandsList = new CommandsList();
         this.gamePlan = new GamePlan();
@@ -31,6 +48,11 @@ public class Game implements IGame {
         commandsList.addCommand(new TeleportCommand(this));
     }
 
+    /**
+     * Returns the initial message shown to the player at the start of the game.
+     *
+     * @return introductory message describing basic commands and game premise
+     */
     public String inceptionMessage() {
         return "Hi! \nThis is a game about treasure hunting in the caves. " +
                 "\n \nUse the command 'go' to move between the spaces " +
@@ -46,12 +68,28 @@ public class Game implements IGame {
                 + "\n \nYou are now in the Start \n \nGood luck!";
     }
 
+    /**
+     * Returns the message displayed when the game ends.
+     *
+     * @return closing message thanking the player
+     */
     public String endMessage() {
         return "That is it! Thanks for playing";
     }
 
+    /**
+     * Checks if the game is over.
+     *
+     * @return true if the game has ended, false otherwise
+     */
     public boolean isOver() { return isOver; }
 
+    /**
+     * Processes the user input command, parses it, and executes the corresponding command.
+     *
+     * @param userCommand the raw command string entered by the user
+     * @return the response message after command execution or an error if the command is invalid
+     */
     public String handleCommand(String userCommand) {
         String[] commandWords = Arrays.stream(userCommand.trim().split("\\s+"))
                 .filter(s -> !s.isBlank())
@@ -69,9 +107,19 @@ public class Game implements IGame {
                 : "This command doesn't exist...";
     }
 
+    /**
+     * Returns the current game plan which holds the state of rooms, player, and characters.
+     *
+     * @return the active GamePlan instance
+     */
     public GamePlan getGamePlan() {
         return gamePlan;
     }
 
+    /**
+     * Sets the game state to over or not.
+     *
+     * @param isOver true to end the game, false to continue playing
+     */
     public void setOver(boolean isOver) { this.isOver = isOver; }
 }

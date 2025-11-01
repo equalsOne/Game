@@ -4,10 +4,17 @@ import logic.gamelogic.Observer;
 import logic.things.Bag;
 import logic.things.Key;
 
-//observer
+/*******************************************************************************
+ * Class Wizard extends the Character base, gives the secret treasure key
+ * @author    Ihor Skosar
+ * @version   LS 2024/2025, June 2025
+ */
 public class Wizard extends Character implements Observer {
     private boolean spiderDefeated = false;
 
+    /**
+     *  Class constructor
+     */
     public Wizard()
     {
         super("Wizard", "Wizard: 'Hi, I'm Wizard! " +
@@ -16,6 +23,10 @@ public class Wizard extends Character implements Observer {
                 "\n\nTo trade with the wizard, type 'trade'");
     }
 
+    /**
+     * Updates the status of spiderDefeated (so that the wizard can trade with the player)
+     *
+     */
     public void update(){
         this.spiderDefeated = true;
 
@@ -24,10 +35,20 @@ public class Wizard extends Character implements Observer {
                 "I can reward you!'");
     }
 
+    /**
+     * Returns the boolean of whether the spider is defeated and wizard can reward the player
+     *
+     * @return spiderDefeated
+     */
     public boolean canReward(){
         return spiderDefeated;
     }
 
+    /**
+     * Returns the string with trading messages
+     *
+     * @return different strings
+     */
     public String tradeWithPlayer() {
         if(!canReward()){
             return "Wizard: 'I can't trade with you while " +

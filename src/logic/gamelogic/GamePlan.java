@@ -6,10 +6,25 @@ import logic.things.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The GamePlan class represents the current state of the game world,
+ * including all rooms and the player's current location.
+ *
+ * It initializes the map of rooms and their connections,
+ * populates rooms with characters and items,
+ * and provides methods to get and set the current room.
+ *
+ * @author Ihor Skosar
+ * @version LS 2024/2025, June 2025
+ */
 public class GamePlan {
     private Room currentRoom;
     private Map<String, Room> rooms;
 
+    /**
+     * Constructs a new GamePlan, creates all rooms,
+     * sets their exits, and populates them with characters and things.
+     */
     public GamePlan(){
         this.rooms = new HashMap<>();
 
@@ -18,8 +33,20 @@ public class GamePlan {
         createGameMap(factory);
     }
 
+    /**
+     * Returns the map of all rooms in the game, keyed by room name.
+     *
+     * @return map of rooms
+     */
     public Map<String, Room> getRooms() { return rooms; }
 
+    /**
+     * Creates the game map by instantiating rooms using the factory,
+     * linking them with exits, adding characters and items to them,
+     * and setting the starting room.
+     *
+     * @param factory the RoomFactory used to create rooms
+     */
     private void createGameMap(RoomFactory factory){
         Room startingRoom = factory.createStartingRoom();
         Room dwarfHut = factory.createDwarfHut();
@@ -65,7 +92,18 @@ public class GamePlan {
         currentRoom = startingRoom;
     }
 
+    /**
+     * Returns the current room where the player is located.
+     *
+     * @return current room
+     */
     public Room getCurrentRoom() { return currentRoom; }
 
+
+    /**
+     * Sets the current room to the specified room.
+     *
+     * @param room the room to set as current
+     */
     public void setCurrentRoom(Room room) { currentRoom = room; }
 }

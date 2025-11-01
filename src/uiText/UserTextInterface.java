@@ -5,12 +5,32 @@ import logic.gamelogic.IGame;
 import java.io.*;
 import java.util.Scanner;
 
+/**
+ * Handles user interaction for the game.
+ *
+ * Provides two ways to play:
+ * - interactively via console input
+ * - reading commands from a file and logging output
+ *
+ * Author: Ihor Skosar
+ * Version: LS 2024/2025, June 2025
+ */
 public class UserTextInterface {
     private IGame currentIGame;
 
+    /**
+     * Constructs the text interface with the given game instance.
+     *
+     * @param currentIGame the game instance to interact with
+     */
     public UserTextInterface(IGame currentIGame)
     { this.currentIGame = currentIGame; }
 
+    /**
+     * Reads a line of user input from the console.
+     *
+     * @return the string entered by the user
+     */
     private String readString(){
         Scanner scanner = new Scanner(System.in);
 
@@ -19,6 +39,10 @@ public class UserTextInterface {
         return scanner.nextLine();
     }
 
+    /**
+     * Runs the game interactively with user input from the console.
+     * Prints messages to standard output.
+     */
     public void play(){
         System.out.println(currentIGame.inceptionMessage());
 
@@ -31,6 +55,12 @@ public class UserTextInterface {
         System.out.println(currentIGame.endMessage());
     }
 
+    /**
+     * Plays the game by reading commands from a file.
+     * Outputs both commands and game responses to console and logs them to "results.txt".
+     *
+     * @param fileName the name of the input file containing commands
+     */
     public void playFromFile (String fileName) {
         try (
                 BufferedReader reading = new BufferedReader(new FileReader(fileName));
